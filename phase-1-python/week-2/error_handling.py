@@ -14,7 +14,7 @@ def basic_error_handling():
     except ZeroDivisionError as e:
         print(f"Caught an error: {e}")
 
-    print("\nCathing multiple exceptions...")
+    print("\nCatching multiple exceptions...")
     try:
         value = int("abc")
     except ValueError:
@@ -54,18 +54,12 @@ def divide_numbers(a, b):
 # ── Task 2: File Reading with Error Handling ─────────
 def read_file(filepath):
     try:
-        file = open(filepath, "r")
-        content = file.read()
+        with open(filepath, "r") as file:
+            content = file.read()
     except FileNotFoundError:
         return "Error: File not found"
     else:
         return content
-    finally:
-        try:
-            file.close()
-            print("File closed successfully")
-        except Exception:
-            print("No file to close")
 
 # ── Task 3: List Indexing with Error Handling ───────
 def get_element(lst, index):
@@ -85,12 +79,9 @@ def validate_age(age):
     return f"Valid age: {age}"
 
 # ── Task 5: Withdraw Money with Custom Exception ───────
-class InsufficientFundsError(Exception):
-    pass
-
 def withdraw(balance, amount):
     if amount > balance:
-        raise InsufficientFundsError("Withdrawal amount exceeds balance")
+        raise ValueError("Withdrawal amount exceeds balance")
     return balance - amount
 
 # ── Task 6: JSON File Processing with Multiple Exceptions ───────
@@ -152,7 +143,7 @@ def main():
     try:
         print(withdraw(100, 30))  
         print(withdraw(100, 150))  
-    except InsufficientFundsError as e:
+    except ValueError as e:
         print(f"Error: {e}")
 
     # TASK 6:
