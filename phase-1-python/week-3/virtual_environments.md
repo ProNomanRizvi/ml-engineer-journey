@@ -1,6 +1,6 @@
 # Virtual Environments
 **Phase:** 1 — Python Complete Mastery
-**Week:** 2
+**Week:** 3
 
 ## 01 - What a virtual environment is and why it matters?
 A virtual environment is like a separate workspace for your Python projects. It allows you to keep all the libraries and dependencies for a specific project isolated from other projects. This is important because different projects might require different versions of the same library, and using a virtual environment helps prevent conflicts between them. It also makes it easier to manage and share your projects without worrying about breaking other projects on your system.
