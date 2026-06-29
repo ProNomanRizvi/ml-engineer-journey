@@ -1,4 +1,4 @@
-
+# Without Dict
 class AccountFactory:
     @staticmethod
     def create_account(acc_type, owner, balance=0.0):
@@ -32,3 +32,29 @@ try:
     unk_acc = AccountFactory.create_account("Account", "Noman", 45000)
 except ValueError as e:
     print(f"Caught expected error: {e}")
+
+# ==========================
+
+# With Dict
+
+class Account:
+    @staticmethod
+    def create_account(acc_type, owner, balance=0.0):
+        acconts = {
+            "current": CurrentAccount(owner, balance),
+            "savings": SavingsAccount(owner, balance),
+        }
+
+        if acc_type in acconts:
+            return acconts[acc_type]
+        else:
+            raise ValueError(f'This Accont "{acc_type}" is Unknown.')
+
+# ============================
+if __name__ == "__main__":
+    curr = Account.create_account("current", "Noman", 45.00)
+    svg = Account.create_account("savings", "Rizvi", 78.00)
+    try:
+        unk = Account.create_account("Account", "Noman", 45000)
+    except ValueError as e:
+        print(f"Caught expected error: {e}")
