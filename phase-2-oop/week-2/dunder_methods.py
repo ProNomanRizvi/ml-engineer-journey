@@ -64,3 +64,13 @@ y = Account("Noman", 1000)
 print(x == y)  # True
 
 
+# __it__ method
+
+class GFG:
+    def __lt__(self, other):
+        return "YES"
+obj1 = GFG()
+obj2 = GFG()
+
+print(obj1 < obj2) 
+print(type(obj1 < obj2))
