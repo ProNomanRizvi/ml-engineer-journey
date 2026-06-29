@@ -1,6 +1,5 @@
 
 class AccountFactory:
-
     @staticmethod
     def create_account(acc_type, owner, balance=0.0):
         if acc_type == 'current':
