@@ -1,5 +1,5 @@
 -- ============================================
--- Topic: SELECT & WHERE Basics
+-- Topic 1: SELECT & WHERE Basics
 -- ============================================
 
 -- Task 01: Extract ALL Students Data
