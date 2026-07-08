@@ -23,3 +23,6 @@ SELECT *
 FROM students
 WHERE gpa >= 3.7 AND department = 'SE';
 
+-- ============================================
+-- Topic 2: GROUP BY, ORDER BY, HAVING
+-- ============================================
