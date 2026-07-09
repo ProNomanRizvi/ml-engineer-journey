@@ -53,3 +53,19 @@ SELECT department, AVG(gpa)
 FROM students
 GROUP BY department
 ORDER BY AVG(gpa) DESC;
+
+-- ============================================
+-- Topic 3: JOINs (Inner, Left, Right, Full)
+-- ============================================
+
+-- Task 11: INNER Join - Get Student Name and Course Name Only if the Student is Enrolled in a Course
+SELECT students.name, enrollments.course_name
+FROM students
+INNER JOIN enrollments
+ON students.id = enrollments.student_id;
+
+-- Task 12: LEFT Join - Get ALL Students Data
+SELECT *
+FROM students AS s
+LEFT JOIN enrollments AS e
+ON s.id = e.student_id;
