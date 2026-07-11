@@ -41,6 +41,8 @@ def create_database():
         (3, "Bilal Ahmed", 20, "CS", 2.9),
         (4, "Ayesha Malik", 23, "SE", 3.9),
         (5, "Noman Rizvi", 21, "SE", 3.7),
+        (6, "Zara Ali", 22, "CS", 3.9),
+        (7, "Hamza Shah", 20, "SE", 3.8)
     ]
 
     cursor.executemany(
@@ -68,6 +70,7 @@ def create_database():
         (3, 3, "Data Structures"),
         (4, 5, "Machine Learning"),
         (5, 6, "Cloud Computing"),   # Intentional for LEFT JOIN practice
+        (6, 7, "Artificial Intelligence"),  # Intentional for LEFT JOIN practice
     ]
 
     cursor.executemany(
