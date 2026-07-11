@@ -54,3 +54,22 @@ SELECT *
 FROM toppers
 WHERE rank_num = 1
 ORDER BY gpa DESC;
+
+-- ============================================
+-- Topic: Subqueries
+-- ============================================
+
+-- Task 8: 
+SELECT name, gpa
+FROM students
+WHERE gpa > (SELECT AVG(gpa) FROM students);
+
+-- Task 9:
+SELECT name
+FROM students
+WHERE id IN (SELECT student_id FROM enrollments);
+
+-- Task 10:
+SELECT name
+FROM students
+WHERE id NOT IN (SELECT student_id FROM enrollments);
