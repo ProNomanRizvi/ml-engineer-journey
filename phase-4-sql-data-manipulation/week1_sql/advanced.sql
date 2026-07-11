@@ -1,5 +1,5 @@
 -- ============================================
--- Topic: Window Functions, CTEs, Subqueries
+-- Topic: Window Functions
 -- ============================================
 
 -- Task 1: Use Row Number
@@ -27,3 +27,7 @@ FROM students;
 SELECT name, department, gpa,
     RANK() OVER(PARTITION BY department ORDER BY gpa DESC) AS dept_rank
 FROM students;
+
+-- ============================================
+-- Topic: CTEs (Common Table Expressions)
+-- ============================================
