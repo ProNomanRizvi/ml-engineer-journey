@@ -32,7 +32,7 @@ FROM students;
 -- Topic: CTEs (Common Table Expressions)
 -- ============================================
 
--- Task 6: 
+-- Task 6: CTE to calculate average GPA of SE department students
 
 WITH se_dept AS (
     SELECT name, department, gpa
@@ -43,7 +43,7 @@ WITH se_dept AS (
 SELECT AVG(gpa) AS se_avg_gpa
 FROM se_dept;
 
--- Task 7: 
+-- Task 7: CTE to find the top student in each department
 
 WITH toppers AS (
     SELECT name, department, gpa,
