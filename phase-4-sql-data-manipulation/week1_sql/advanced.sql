@@ -31,3 +31,26 @@ FROM students;
 -- ============================================
 -- Topic: CTEs (Common Table Expressions)
 -- ============================================
+
+-- Task 6: 
+
+WITH se_dept AS (
+    SELECT name, department, gpa
+    FROM students
+    WHERE department = 'SE'
+)
+
+SELECT AVG(gpa) AS se_avg_gpa
+FROM se_dept;
+
+-- Task 7: 
+
+WITH toppers AS (
+    SELECT name, department, gpa,
+        RANK() OVER(PARTITION BY department ORDER BY gpa DESC) AS rank_num
+    FROM students
+)
+SELECT * 
+FROM toppers
+WHERE rank_num = 1
+ORDER BY gpa DESC;
