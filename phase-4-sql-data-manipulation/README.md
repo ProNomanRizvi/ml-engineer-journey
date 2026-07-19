@@ -1,4 +1,4 @@
-# Phase 4: SQL & Data Manipulation
+# Phase 4: SQL & Data Manipulation ✅ COMPLETE
 
 Part of my ML Engineer self-learning roadmap. This phase is about learning
 how to pull, clean, and analyze data — the real starting point of any ML
@@ -12,14 +12,14 @@ project. Split into SQL, NumPy, and Pandas.
 ```
 phase-4-sql-data-manipulation/
 ├── week1_sql/          ✅ Done
-├── week2_numpy/        ✅ Done
-├── week3_pandas/        ✅ Done
-└── week4_project/       ⏳ Pending
+├── week2_numpy/         ✅ Done
+├── week3_pandas/         ✅ Done
+└── week4_project/         ✅ Done
 ```
 
 ---
 
-## Week 1 — SQL (Completed)
+## Week 1 — SQL
 
 Learned SQL using SQLite with a small dummy database of students and
 their course enrollments.
@@ -46,7 +46,7 @@ sqlite3 -header -column data/students.db < basics.sql
 
 ---
 
-## Week 2 — NumPy (Completed)
+## Week 2 — NumPy
 
 Learned NumPy for fast, vectorized numerical operations — the foundation
 for every ML math operation.
@@ -73,7 +73,7 @@ python3 01_arrays.py
 
 ---
 
-## Week 3 — Pandas (Completed)
+## Week 3 — Pandas
 
 Learned Pandas for working with real-world, table-shaped data — cleaning
 it, combining it, and summarizing it.
@@ -100,13 +100,36 @@ python3 01_dataframe_basics.py
 
 ---
 
-## Coming Up
+## Week 4 — ETL Project (Final Project)
 
-- **Week 4:** Final project — an ETL pipeline (SQL → Pandas → NumPy)
+Combined everything from the previous three weeks into one real,
+working pipeline — the same workflow used in real data engineering and
+ML projects.
+
+**Pipeline stages:**
+- **Extract** — pull raw data from a SQLite database into a Pandas DataFrame
+- **Transform** — clean messy text, fill missing values (category-aware), remove duplicates
+- **Analyze** — use NumPy to calculate revenue, averages, and highest values
+- **Load** — save the final clean, analyzed data into a CSV report
+
+**Files:**
+- `create_source_db.py` — builds a deliberately messy sample database
+- `etl_pipeline.py` — the full 4-stage ETL pipeline
+- `data/output/final_report.csv` — the final cleaned and analyzed result
+- `README.md` — project-specific write-up
+- `notes.md` — my own notes on the ETL process
+
+**How to run:**
+```bash
+python3 create_source_db.py
+python3 etl_pipeline.py
+```
 
 ---
 
-## Why This Matters
+## Why This Phase Mattered
 
 Most of the real work in ML is not building models — it's getting data
-ready. This phase builds that foundation before touching any ML algorithm.
+ready. This phase built that foundation: pulling data with SQL, doing
+fast numerical work with NumPy, and cleaning/shaping real-world data
+with Pandas — then proving it all works together in one pipeline.
