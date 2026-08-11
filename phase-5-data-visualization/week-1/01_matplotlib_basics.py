@@ -1,8 +1,3 @@
-"""
-File: plotting_practice.py
-Topic: Matplotlib Subplots + Training Curve
-"""
-
 import numpy as np
 import matplotlib.pyplot as plt
 
