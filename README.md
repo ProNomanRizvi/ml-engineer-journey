@@ -31,6 +31,7 @@ ml-engineer-journey/
 ├── phase-2-oop/                        # Classes, inheritance, design patterns
 ├── phase-3-dsa/                        # Data structures and algorithms from scratch
 ├── phase-4-sql-data-manipulation/       # SQL, NumPy, Pandas + final ETL pipeline project
+├── phase-5-visualization-math/          # Matplotlib, Seaborn, Plotly + Linear Algebra, Calculus, Stats
 ├── leetcode/
 │   ├── easy/                             # All Easy solutions
 │   └── medium/                           # All Medium solutions
@@ -58,6 +59,12 @@ linked lists, binary trees). Capstone: a CLI Task Manager with a
 functions, CTEs, and subqueries; NumPy for vectorized math; Pandas for
 real-world data cleaning. Capstone: a full ETL pipeline (SQL → Pandas →
 NumPy) processing messy sales data into a clean report.
+
+**Phase 5 — Visualization + Math for ML (in progress):** Matplotlib
+OO-style API for production-grade plots — subplot grids (line, bar,
+scatter, histogram) plus training/validation loss curves for ML
+diagnostics. Seaborn, Plotly, Linear Algebra, Calculus, Statistics, and a
+from-scratch Gradient Descent implementation to follow.
 
 ---
 
