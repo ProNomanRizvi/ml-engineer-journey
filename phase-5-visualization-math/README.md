@@ -28,4 +28,7 @@ phase-5-visualization-math/
 production standard over pyplot shorthand. 2x2 subplot grid covering line,
 bar, scatter, and histogram plots, plus a dedicated training-vs-validation
 loss curve function — an ML-specific visualization added beyond the base
-roadmap for portfolio relevance.
+roadmap for portfolio relevance. Polished with `plt.style.use()`,
+dynamic best-model highlighting via `np.argmax()`, and `ax.annotate()`
+call-outs (best model, overfitting onset) to make charts communicate
+insight, not just display data.
