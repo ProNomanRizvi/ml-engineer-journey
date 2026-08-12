@@ -29,13 +29,19 @@ def create_dataset():
 def plot_correlation_heatmap(df):
     """Create and save a correlation heatmap."""
 
-    # Select numeric columns and calculate correlation
+    # Calculate correlation matrix
     correlation = df.corr(numeric_only=True)
+
+    # Hide the redundant upper triangle
+    mask = np.triu(
+        np.ones_like(correlation, dtype=bool)
+    )
 
     plt.figure(figsize=(8, 6))
 
     sns.heatmap(
         correlation,
+        mask=mask,
         annot=True,
         fmt=".2f",
         cmap="coolwarm",
@@ -45,7 +51,11 @@ def plot_correlation_heatmap(df):
     plt.title("Feature Correlation Heatmap")
     plt.tight_layout()
 
-    plt.savefig("correlation_heatmap.png", dpi=300)
+    plt.savefig(
+        "correlation_heatmap.png",
+        dpi=300
+    )
+
     plt.close()
 
 
@@ -58,10 +68,12 @@ def plot_pairplot(df):
         "experience_years"
     ]
 
+    # Show only lower triangle + diagonal
     grid = sns.pairplot(
         df,
         vars=numeric_columns,
-        hue="department"
+        hue="department",
+        corner=True
     )
 
     grid.fig.suptitle(
@@ -95,7 +107,11 @@ def plot_salary_boxplot(df):
 
     plt.tight_layout()
 
-    plt.savefig("salary_boxplot.png", dpi=300)
+    plt.savefig(
+        "salary_boxplot.png",
+        dpi=300
+    )
+
     plt.close()
 
 
@@ -117,7 +133,11 @@ def plot_salary_distribution(df):
 
     plt.tight_layout()
 
-    plt.savefig("salary_distribution.png", dpi=300)
+    plt.savefig(
+        "salary_distribution.png",
+        dpi=300
+    )
+
     plt.close()
 
 
@@ -127,7 +147,6 @@ def main():
     # Create fake dataset
     df = create_dataset()
 
-    # Display basic information
     print("Dataset shape:")
     print(df.shape)
 
