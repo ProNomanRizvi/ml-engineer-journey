@@ -62,12 +62,18 @@ def plot_department_bar(df):
 
 
 def plot_age_histogram(df):
-    """Create and save age distribution histogram."""
+    """
+    Create and save the individual age histogram.
+
+    This remains a real Plotly histogram as requested.
+    """
 
     fig = px.histogram(
         df,
         x="age",
         color="department",
+        barmode="overlay",
+        opacity=0.6,
         title="Age Distribution by Department"
     )
 
@@ -76,19 +82,58 @@ def plot_age_histogram(df):
     return fig
 
 
+def create_dashboard_age_chart(df):
+    """
+    Create a dashboard-safe age distribution chart.
+
+    Ages are manually grouped into buckets and then
+    plotted using px.bar().
+    """
+
+    df = df.copy()
+
+    # Create age buckets
+    df["age_bucket"] = pd.cut(
+        df["age"],
+        bins=[19, 29, 39, 49, 59],
+        labels=["20-29", "30-39", "40-49", "50-59"]
+    )
+
+    # Count people in each age bucket and department
+    age_counts = (
+        df.groupby(
+            ["age_bucket", "department"],
+            observed=False
+        )
+        .size()
+        .reset_index(name="count")
+    )
+
+    fig = px.bar(
+        age_counts,
+        x="age_bucket",
+        y="count",
+        color="department",
+        barmode="group",
+        title="Age Distribution by Department"
+    )
+
+    return fig
+
+
 def plot_experience_line(df):
     """Create and save average salary trend by experience bucket."""
 
-    # Create four experience buckets
     df = df.copy()
 
+    # Create experience buckets
     df["experience_bucket"] = pd.cut(
         df["experience_years"],
         bins=[-1, 5, 10, 15, 20],
         labels=["0-5", "5-10", "10-15", "15-20"]
     )
 
-    # Calculate average salary for each bucket and department
+    # Calculate average salary
     average_salary = (
         df.groupby(
             ["experience_bucket", "department"],
@@ -115,10 +160,10 @@ def plot_experience_line(df):
 def create_dashboard(
     salary_scatter,
     department_bar,
-    age_histogram,
+    age_dashboard_chart,
     experience_line
 ):
-    """Combine all Plotly charts into one 2x2 dashboard."""
+    """Combine all charts into one 2x2 interactive dashboard."""
 
     dashboard = make_subplots(
         rows=2,
@@ -131,47 +176,67 @@ def create_dashboard(
         )
     )
 
+    # Track which legend names have already appeared
+    seen_departments = set()
+
+    def add_traces(fig_source, row, col):
+        """
+        Add traces from a Plotly figure while preventing
+        duplicate legend entries.
+        """
+
+        for trace in fig_source.data:
+
+            # Show each department in the legend only once
+            if trace.name in seen_departments:
+                trace.showlegend = False
+            else:
+                trace.showlegend = True
+                seen_departments.add(trace.name)
+
+            dashboard.add_trace(
+                trace,
+                row=row,
+                col=col
+            )
+
     # ---------------------------------------------------------
     # [1, 1] Salary Scatter
     # ---------------------------------------------------------
-    for trace in salary_scatter.data:
-        dashboard.add_trace(
-            trace,
-            row=1,
-            col=1
-        )
+    add_traces(
+        salary_scatter,
+        row=1,
+        col=1
+    )
 
     # ---------------------------------------------------------
     # [1, 2] Department Bar
     # ---------------------------------------------------------
-    for trace in department_bar.data:
-        dashboard.add_trace(
-            trace,
-            row=1,
-            col=2
-        )
+    add_traces(
+        department_bar,
+        row=1,
+        col=2
+    )
 
     # ---------------------------------------------------------
-    # [2, 1] Age Histogram
+    # [2, 1] Dashboard-safe Age Chart
     # ---------------------------------------------------------
-    for trace in age_histogram.data:
-        dashboard.add_trace(
-            trace,
-            row=2,
-            col=1
-        )
+    add_traces(
+        age_dashboard_chart,
+        row=2,
+        col=1
+    )
 
     # ---------------------------------------------------------
     # [2, 2] Experience Line
     # ---------------------------------------------------------
-    for trace in experience_line.data:
-        dashboard.add_trace(
-            trace,
-            row=2,
-            col=2
-        )
+    add_traces(
+        experience_line,
+        row=2,
+        col=2
+    )
 
-    # Dashboard title
+    # Dashboard layout
     dashboard.update_layout(
         title_text="ML Dataset Interactive EDA Dashboard",
         height=900,
@@ -179,7 +244,7 @@ def create_dashboard(
         showlegend=True
     )
 
-    # Save combined dashboard
+    # Save dashboard
     dashboard.write_html("dashboard.html")
 
 
@@ -192,17 +257,29 @@ def main():
     print("Dataset created successfully!")
     print(f"Shape: {df.shape}")
 
-    # Create individual interactive charts
+    # ---------------------------------------------------------
+    # Individual charts
+    # ---------------------------------------------------------
     salary_scatter = plot_salary_scatter(df)
     department_bar = plot_department_bar(df)
+
+    # Real interactive histogram for individual HTML
     age_histogram = plot_age_histogram(df)
+
     experience_line = plot_experience_line(df)
 
-    # Create combined dashboard
+    # ---------------------------------------------------------
+    # Dashboard-specific age chart
+    # ---------------------------------------------------------
+    age_dashboard_chart = create_dashboard_age_chart(df)
+
+    # ---------------------------------------------------------
+    # Combined dashboard
+    # ---------------------------------------------------------
     create_dashboard(
         salary_scatter,
         department_bar,
-        age_histogram,
+        age_dashboard_chart,
         experience_line
     )
 
