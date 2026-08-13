@@ -9,7 +9,7 @@
 | Week 1 | Matplotlib | ✅ Done |
 | Week 1 | Seaborn | ✅ Done |
 | Week 2 | Plotly Express | ✅ Done |
-| Week 2-3 | Linear Algebra | ⏳ Upcoming |
+| Week 2-3 | Linear Algebra | ✅ Done |
 | Week 3-4 | Calculus | ⏳ Upcoming |
 | Week 4-5 | Statistics | ⏳ Upcoming |
 | Week 5 | Gradient Descent from scratch (NumPy) | ⏳ Upcoming |
@@ -27,14 +27,17 @@ phase-5-visualization-math/
 │ ├── pairplot.png
 │ ├── salary_boxplot.png
 │ └── salary_distribution.png
-└── week2_ploty_express/
-├── plotly_dashboard.py
-├── notes.md
-├── salary_scatter.html
-├── department_bar.html
-├── age_histogram.html
-├── experience_line.html
-└── dashboard.html
+├── week2_ploty_express/
+│ ├── plotly_dashboard.py
+│ ├── notes.md
+│ ├── salary_scatter.html
+│ ├── department_bar.html
+│ ├── age_histogram.html
+│ ├── experience_line.html
+│ └── dashboard.html
+└── week3_linear_algebra/
+├── linear_algebra_basics.py
+└── notes.md
 ```
 
 ## Week Highlights
@@ -64,3 +67,11 @@ real integration bugs: duplicated legends across subplots (fixed by
 tracking seen trace names and disabling repeats) and a broken histogram
 render inside the combined grid (fixed by pre-binning the data and
 using `px.bar()` instead of `px.histogram()` for the dashboard view).
+
+**Week 2-3 — Linear Algebra:** Vectors (addition, subtraction, dot
+product, norm), matrices (`@` vs `*`, transpose, inverse verified
+against the identity matrix), and eigenvalues/eigenvectors — all
+implemented and numerically verified in NumPy rather than left as
+theory. Capped with a practical demo: solving Linear Regression via the
+Normal Equation in one line, confirming the closed-form solution
+recovers the exact known coefficients without gradient descent.
