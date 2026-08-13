@@ -24,6 +24,18 @@ print("v1 - v2 =", v1 - v2)
 dot = np.dot(v1, v2)
 print("Dot product (v1 . v2) =", dot)
 
+# A vector's norm (L2 norm / magnitude) measures its "length" — how far
+# the point it represents is from the origin. It's literally derived
+# from the dot product: norm = sqrt(dot(v, v)). We care about it because
+# cosine similarity divides the dot product by both vectors' norms to
+# cancel out magnitude and keep only direction/alignment, and it's also
+# the basis of L2 regularization (Ridge) which penalizes large weights
+# by their norm to prevent overfitting.
+norm_v1 = np.linalg.norm(v1)
+print("Norm of v1 (||v1||) =", norm_v1)
+
+# Manual verification — same result, computed the long way
+print("Manual check: sqrt(dot(v1, v1)) =", np.sqrt(np.dot(v1, v1)))
 
 # ============================================================
 # 2. MATRICES
