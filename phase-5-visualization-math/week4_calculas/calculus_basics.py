@@ -177,3 +177,37 @@ print()
 print("Final x:", x)
 print("Final y:", y)
 print("Final f(x,y):", f_multi(x, y))
+
+# ============================================================
+# Sigmoid Activation Function — Derivative
+# ============================================================
+
+def sigmoid(x):
+    # Why: Sigmoid "squashes" any real number into the range (0, 1) —
+    # this is what lets a neural network output something interpretable
+    # as a probability, and is one of the most common activation
+    # functions used between layers.
+    return 1 / (1 + np.exp(-x))
+
+
+def sigmoid_derivative(x):
+    # Why: This is a chain rule result — sigmoid is a composite function
+    # (1 / (1 + e^-x)), and differentiating it algebraically simplifies
+    # to this remarkably clean form: sigmoid(x) * (1 - sigmoid(x)).
+    # This is exactly why sigmoid is convenient to use in backprop —
+    # once you've computed sigmoid(x) in the forward pass, you get its
+    # derivative almost for free during the backward pass.
+    s = sigmoid(x)
+    return s * (1 - s)
+
+
+x = 2
+
+sigmoid_symbolic = sigmoid_derivative(x)
+sigmoid_numerical = numerical_derivative(sigmoid, x)
+
+print("=== 6. Sigmoid Derivative ===")
+print("sigmoid(2):", sigmoid(x))
+print("Symbolic derivative:", sigmoid_symbolic)
+print("Numerical derivative:", sigmoid_numerical)
+print("Difference:", abs(sigmoid_symbolic - sigmoid_numerical))
