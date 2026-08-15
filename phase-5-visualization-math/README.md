@@ -10,7 +10,7 @@
 | Week 1 | Seaborn | ✅ Done |
 | Week 2 | Plotly Express | ✅ Done |
 | Week 2-3 | Linear Algebra | ✅ Done |
-| Week 3-4 | Calculus | ⏳ Upcoming |
+| Week 3-4 | Calculus | ✅ Done |
 | Week 4-5 | Statistics | ⏳ Upcoming |
 | Week 5 | Gradient Descent from scratch (NumPy) | ⏳ Upcoming |
 
@@ -37,6 +37,9 @@ phase-5-visualization-math/
 │ └── dashboard.html
 └── week3_linear_algebra/
 ├── linear_algebra_basics.py
+└── notes.md
+└── week4_calculas/
+├── calculus_basics.py
 └── notes.md
 ```
 
@@ -75,3 +78,11 @@ implemented and numerically verified in NumPy rather than left as
 theory. Capped with a practical demo: solving Linear Regression via the
 Normal Equation in one line, confirming the closed-form solution
 recovers the exact known coefficients without gradient descent.
+
+**Week 3-4 — Calculus:** Derivatives (symbolic vs. numerical central
+difference), the chain rule on a composite function, partial
+derivatives, and the gradient vector — every result checked two ways
+rather than taken on faith. Closed with a working Gradient Descent loop
+that converges `(x, y) = (10, 10)` down to near the true minimum at the
+origin, and a sigmoid activation derivative (backprop-relevant, beyond
+the base roadmap) verified the same way.
