@@ -338,3 +338,99 @@ print(
 #
 # This is the key lesson of Bayes' theorem:
 # the base rate (prior probability) matters.
+
+# ============================================
+# Step 5: Correlation
+# ============================================
+
+# x is normally distributed around 50
+x = np.random.normal(50, 10, 100)
+
+# y depends directly on x.
+# We multiply x by 2 and then add some random noise.
+#
+# Because y changes when x changes,
+# x and y should have a strong positive correlation.
+
+y = x * 2 + np.random.normal(0, 5, 100)
+
+# z is completely unrelated to x.
+# It is generated independently from another
+# normal distribution.
+
+z = np.random.normal(50, 10, 100)
+
+
+# ============================================
+# Calculate Correlation
+# ============================================
+
+correlation_xy = np.corrcoef(x, y)
+correlation_xz = np.corrcoef(x, z)
+
+
+print("\n--- Correlation ---")
+
+print("Correlation matrix (x, y):")
+print(correlation_xy)
+
+print("\nCorrelation matrix (x, z):")
+print(correlation_xz)
+
+
+# ============================================
+# Extract the actual correlation coefficient
+# ============================================
+
+# np.corrcoef() returns a 2x2 correlation matrix:
+#
+# [[corr(x,x), corr(x,y)],
+#  [corr(y,x), corr(y,y)]]
+#
+# The value at [0, 1] is the correlation
+# between x and y.
+
+corr_xy = np.corrcoef(x, y)[0, 1]
+corr_xz = np.corrcoef(x, z)[0, 1]
+
+
+print("\nCorrelation coefficient x,y:", corr_xy)
+print("Correlation coefficient x,z:", corr_xz)
+
+
+# ============================================
+# Interpretation
+# ============================================
+
+# x and y:
+# y = x * 2 + noise
+#
+# Therefore, when x increases, y generally increases.
+# This creates a strong positive correlation.
+#
+# corr_xy should be close to +1.
+
+
+# x and z:
+# z has no relationship with x.
+#
+# Therefore, knowing x tells us almost nothing
+# about z.
+#
+# corr_xz should be close to 0.
+
+
+# Important:
+# Correlation measures the strength and direction
+# of a LINEAR relationship.
+#
+# Correlation close to +1:
+# Strong positive linear relationship.
+#
+# Correlation close to -1:
+# Strong negative linear relationship.
+#
+# Correlation close to 0:
+# Little or no linear relationship.
+#
+# Correlation does NOT automatically mean causation.
