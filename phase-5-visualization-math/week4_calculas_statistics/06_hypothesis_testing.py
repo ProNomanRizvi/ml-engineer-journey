@@ -206,3 +206,124 @@ else:
 #
 # It means the observed difference is statistically
 # significant according to our chosen threshold.
+
+# ============================================
+# Step 4: Second Scenario
+# Model C vs Model D
+# ============================================
+
+# Here both models have the SAME theoretical mean:
+#
+# Model C → loc = 0.85
+# Model D → loc = 0.85
+#
+# Therefore, we are simulating a situation where
+# there is no intended difference between the models.
+#
+# They will still have different individual scores
+# because the data is randomly generated.
+
+
+model_c_scores = np.random.normal(
+    loc=0.85,
+    scale=0.03,
+    size=30
+)
+
+model_d_scores = np.random.normal(
+    loc=0.85,
+    scale=0.03,
+    size=30
+)
+
+
+# ============================================
+# Descriptive Statistics
+# ============================================
+
+model_c_mean = np.mean(model_c_scores)
+model_c_std = np.std(model_c_scores)
+
+model_d_mean = np.mean(model_d_scores)
+model_d_std = np.std(model_d_scores)
+
+
+print("\n--- Model C vs Model D ---")
+
+print("Model C Mean:", model_c_mean)
+print("Model C Std:", model_c_std)
+
+print("Model D Mean:", model_d_mean)
+print("Model D Std:", model_d_std)
+
+
+# ============================================
+# Independent t-test
+# ============================================
+
+t_statistic_cd, p_value_cd = stats.ttest_ind(
+    model_c_scores,
+    model_d_scores
+)
+
+
+print("\nT-statistic:", t_statistic_cd)
+print("P-value:", p_value_cd)
+
+
+# ============================================
+# Hypothesis Test Decision
+# ============================================
+
+# H0:
+# There is no statistically significant difference
+# between Model C and Model D.
+#
+# H1:
+# There is a statistically significant difference.
+#
+# We use the same significance level:
+# alpha = 0.05
+
+alpha = 0.05
+
+
+if p_value_cd < alpha:
+    print("Decision: Reject H0")
+    print("Statistically significant difference.")
+
+else:
+    print("Decision: Do not reject H0")
+    print("Not enough evidence of a difference.")
+
+
+# ============================================
+# Why should we NOT reject H0?
+# ============================================
+
+# Both Model C and Model D were generated
+# with the same theoretical mean: 0.85.
+#
+# Their individual scores will still differ
+# because of random variation.
+#
+# A hypothesis test helps us determine whether
+# the observed difference is large enough to be
+# considered statistically significant.
+#
+# Ideally, the p-value will be greater than 0.05.
+#
+# p-value >= 0.05
+#        ↓
+# Do NOT reject H0
+#        ↓
+# Not enough evidence of a real difference.
+#
+# IMPORTANT:
+#
+# "Do not reject H0" does NOT mean:
+# "We proved the models are exactly identical."
+#
+# It means:
+# "Our data does not provide strong enough
+# evidence to conclude that they are different."
