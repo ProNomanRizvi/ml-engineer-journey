@@ -224,3 +224,117 @@ print("Difference:", difference)
 # This demonstrates an important statistical idea:
 # with more random samples, experimental results tend
 # to approach their theoretical expectations.
+
+# ============================================
+# Step 4: Bayes' Theorem — Medical Test
+# ============================================
+
+# Disease is rare:
+# Only 1% of the population has the disease.
+
+p_disease = 0.01
+
+# Probability that the test is positive
+# when the person actually has the disease.
+# This is called sensitivity.
+
+p_positive_given_disease = 0.95
+
+# Probability that the test is positive
+# when the person does NOT have the disease.
+# This is the false positive rate.
+
+p_positive_given_no_disease = 0.10
+
+
+# Probability of NOT having the disease
+p_no_disease = 1 - p_disease
+
+
+# ============================================
+# Step 1: Calculate P(Positive)
+# ============================================
+
+# Total Law of Probability:
+#
+# P(positive) =
+# P(positive | disease) * P(disease)
+# +
+# P(positive | no disease) * P(no disease)
+
+p_positive = (
+    p_positive_given_disease * p_disease
+    + p_positive_given_no_disease * p_no_disease
+)
+
+
+print("\n--- Bayes' Theorem: Medical Test ---")
+print("P(Positive):", p_positive)
+print("P(Positive) %:", p_positive * 100)
+
+
+# ============================================
+# Step 2: Calculate P(Disease | Positive)
+# ============================================
+
+# Bayes' Theorem:
+#
+# P(disease | positive) =
+#
+# P(positive | disease) * P(disease)
+# -----------------------------------
+#             P(positive)
+
+p_disease_given_positive = (
+    p_positive_given_disease * p_disease
+) / p_positive
+
+
+print("P(Disease | Positive):", p_disease_given_positive)
+print(
+    "P(Disease | Positive) %:",
+    p_disease_given_positive * 100
+)
+
+
+# ============================================
+# Why is the result surprising?
+# ============================================
+
+# The final probability is only about 8.76%.
+#
+# Even though the test has 95% sensitivity,
+# a positive result does NOT mean there is a 95%
+# chance that the person has the disease.
+#
+# Why?
+#
+# The disease is very rare:
+# only 1% of people have it.
+#
+# The 10% false-positive rate is applied to the
+# much larger group of healthy people.
+#
+# Imagine 10,000 people:
+#
+# 100 people have the disease.
+# 9,900 people do not have the disease.
+#
+# Among the 100 diseased people:
+# 95 test positive.
+#
+# Among the 9,900 healthy people:
+# 990 test positive falsely.
+#
+# Total positive tests:
+# 95 + 990 = 1,085
+#
+# Actual diseased people among positive tests:
+# 95
+#
+# Therefore:
+#
+# 95 / 1085 ≈ 8.76%
+#
+# This is the key lesson of Bayes' theorem:
+# the base rate (prior probability) matters.
