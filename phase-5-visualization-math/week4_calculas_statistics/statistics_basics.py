@@ -150,3 +150,77 @@ print("Within 3 std:", percentage_3_std, "%")
 # becomes [1, 1, 0, 1]
 #
 # Mean = 3 / 4 = 0.75 = 75%
+
+# ============================================
+# Step 3: Binomial Distribution
+# ============================================
+
+# 10 coin flips
+# 1000 independent experiments
+# p = 0.5 means fair coin
+#
+# Each experiment asks:
+# "Out of 10 flips, how many times did we get Heads?"
+
+binomial_data = np.random.binomial(
+    n=10,
+    p=0.5,
+    size=1000
+)
+
+
+# Calculate the experimental mean
+binomial_mean = np.mean(binomial_data)
+
+print("\n--- Binomial Distribution ---")
+print("Mean:", binomial_mean)
+
+
+# ============================================
+# Theoretical Expected Value
+# ============================================
+
+# For a binomial distribution:
+#
+# Expected Value (mean) = n * p
+#
+# n = number of trials = 10
+# p = probability of success = 0.5
+#
+# Therefore:
+#
+# Expected Value = 10 * 0.5
+#                = 5
+
+theoretical_mean = 10 * 0.5
+
+print("Theoretical Mean:", theoretical_mean)
+
+
+# The experimental mean should be close to 5.
+#
+# Why isn't it exactly 5?
+#
+# Because binomial_data contains only 1000 random experiments.
+# Random sampling naturally creates small differences.
+#
+# If we increased size from 1000 to 100000,
+# the experimental mean would generally get even closer
+# to the theoretical value of 5.
+
+
+# ============================================
+# Compare Experimental vs Theoretical
+# ============================================
+
+difference = abs(binomial_mean - theoretical_mean)
+
+print("Difference:", difference)
+
+
+# Small difference = experimental result is close
+# to the theoretical expected value.
+#
+# This demonstrates an important statistical idea:
+# with more random samples, experimental results tend
+# to approach their theoretical expectations.
