@@ -11,7 +11,7 @@
 | Week 2 | Plotly Express | ✅ Done |
 | Week 2-3 | Linear Algebra | ✅ Done |
 | Week 3-4 | Calculus | ✅ Done |
-| Week 4-5 | Statistics | ⏳ Upcoming |
+| Week 4-5 | Statistics | ✅ Done |
 | Week 5 | Gradient Descent from scratch (NumPy) | ⏳ Upcoming |
 
 ## Structure
@@ -41,8 +41,16 @@ phase-5-visualization-math/
 └── week4_calculas/
 ├── calculus_basics.py
 └── notes.md
+└── week4_calculas_statistics/
+├── calculus_basics.py
+├── 01_central_tendency_spread.py
+├── 02_normal_distribution.py
+├── 03_binomial_distribution.py
+├── 04_bayes_medical_test.py
+├── 05_correlation.py
+├── 06_hypothesis_testing.py
+└── notes.md
 ```
-
 ## Week Highlights
 
 **Week 1 — Matplotlib:** OO-style API (`fig, ax = plt.subplots()`) as the
@@ -86,3 +94,15 @@ rather than taken on faith. Closed with a working Gradient Descent loop
 that converges `(x, y) = (10, 10)` down to near the true minimum at the
 origin, and a sigmoid activation derivative (backprop-relevant, beyond
 the base roadmap) verified the same way.
+
+**Week 4-5 — Statistics:** Central tendency and spread (mean vs. median
+robustness to outliers), the normal distribution (68-95-99.7 rule
+verified empirically), the binomial distribution (Law of Large Numbers
+demonstrated experimentally), Bayes' theorem (rare-disease example
+showing the base-rate effect, cross-checked against a manual
+natural-frequencies calculation), and correlation (engineered vs.
+random relationships, with a correlation ≠ causation note). Extended
+beyond the base roadmap with hypothesis testing — an independent t-test
+comparing model accuracy scores across two scenarios (a real difference
+vs. no real difference), since p-values and significance testing are
+used throughout ML engineering to evaluate models and A/B tests.
