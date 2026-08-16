@@ -12,7 +12,9 @@
 | Week 2-3 | Linear Algebra | ✅ Done |
 | Week 3-4 | Calculus | ✅ Done |
 | Week 4-5 | Statistics | ✅ Done |
-| Week 5 | Gradient Descent from scratch (NumPy) | ⏳ Upcoming |
+| Week 5 | Gradient Descent from Scratch (Capstone) | ✅ Done |
+
+**Phase 5: COMPLETE ✅**
 
 ## Structure
 ```
@@ -28,29 +30,31 @@ phase-5-visualization-math/
 │ ├── salary_boxplot.png
 │ └── salary_distribution.png
 ├── week2_ploty_express/
-│ ├── plotly_dashboard.py
+│ ├── 03_plotly_dashboard.py
 │ ├── notes.md
 │ ├── salary_scatter.html
 │ ├── department_bar.html
 │ ├── age_histogram.html
 │ ├── experience_line.html
 │ └── dashboard.html
-└── week3_linear_algebra/
-├── linear_algebra_basics.py
-└── notes.md
-└── week4_calculas/
-├── calculus_basics.py
-└── notes.md
-└── week4_calculas_statistics/
-├── calculus_basics.py
-├── 01_central_tendency_spread.py
-├── 02_normal_distribution.py
-├── 03_binomial_distribution.py
-├── 04_bayes_medical_test.py
-├── 05_correlation.py
-├── 06_hypothesis_testing.py
+├── week3_linear_algebra/
+│ ├── linear_algebra_basics.py
+│ └── notes.md
+├── week4_calculas_statistics/
+│ ├── calculus_basics.py
+│ ├── 01_central_tendency_spread.py
+│ ├── 02_normal_distribution.py
+│ ├── 03_binomial_distribution.py
+│ ├── 04_bayes_medical_test.py
+│ ├── 05_correlation.py
+│ ├── 06_hypothesis_testing.py
+│ └── notes.md
+└── week5_gradient_descent/
+├── gradient_descent_from_scratch.py
+├── convergence_plot.png
 └── notes.md
 ```
+
 ## Week Highlights
 
 **Week 1 — Matplotlib:** OO-style API (`fig, ax = plt.subplots()`) as the
@@ -106,3 +110,17 @@ beyond the base roadmap with hypothesis testing — an independent t-test
 comparing model accuracy scores across two scenarios (a real difference
 vs. no real difference), since p-values and significance testing are
 used throughout ML engineering to evaluate models and A/B tests.
+
+**Week 5 — Gradient Descent from Scratch (Capstone):** Multi-feature
+linear regression trained entirely by hand — no `sklearn.fit()`. Full
+manual training loop (predictions, MSE loss, gradients, parameter
+updates) over 3000 iterations, plotted with the OO Matplotlib style from
+Week 1. Verified against `sklearn.linear_model.LinearRegression` fit on
+the same data — final weights and bias matched to within ~0.0003 and
+~0.005 respectively. Along the way, diagnosed a real convergence issue:
+at 1000 iterations the loss curve *looked* flat, but bias was still
+measurably off from the true value (weights had converged faster than
+bias); increasing to 3000 iterations resolved it. This project combines
+every math topic from the phase — matrix operations (Linear Algebra),
+gradients (Calculus), and visualization (Matplotlib) — into one working,
+independently-verified implementation.
