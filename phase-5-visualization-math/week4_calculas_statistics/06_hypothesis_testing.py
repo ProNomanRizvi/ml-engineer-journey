@@ -1,4 +1,5 @@
 import numpy as np
+from scipy import stats
 
 
 # ============================================
@@ -120,3 +121,88 @@ print("Model B Std:", model_b_std)
 #
 # That is why we perform a hypothesis test
 # in the next step.
+
+# ============================================
+# Step 3: Independent t-test
+# ============================================
+
+# Null Hypothesis (H0):
+# There is NO statistically significant difference
+# between Model A and Model B accuracy.
+#
+# Alternative Hypothesis (H1):
+# There IS a statistically significant difference
+# between Model A and Model B accuracy.
+
+
+# Perform independent two-sample t-test.
+#
+# This test compares the means of two independent
+# groups and tells us whether their difference
+# is statistically significant.
+
+t_statistic, p_value = stats.ttest_ind(
+    model_a_scores,
+    model_b_scores
+)
+
+
+# ============================================
+# Print Test Results
+# ============================================
+
+print("\n--- Hypothesis Test: Model A vs Model B ---")
+
+print("T-statistic:", t_statistic)
+print("P-value:", p_value)
+
+
+# ============================================
+# Decision Rule
+# ============================================
+
+alpha = 0.05
+
+# Decision logic:
+#
+# If p-value < alpha:
+#     Reject H0
+#
+# This means there is enough statistical evidence
+# to say that the two model means are different.
+#
+# If p-value >= alpha:
+#     Do NOT reject H0
+#
+# This means we do not have enough evidence
+# to claim that the models are significantly different.
+
+if p_value < alpha:
+    print("Decision: Reject H0")
+    print("Statistically significant difference.")
+
+else:
+    print("Decision: Do not reject H0")
+    print("Not enough evidence of a difference.")
+
+
+# ============================================
+# Why do we use alpha = 0.05?
+# ============================================
+
+# alpha = 0.05 means we accept a 5% significance
+# threshold.
+#
+# If the p-value is smaller than 0.05, the observed
+# difference would be relatively unlikely under
+# the assumption that H0 is true.
+#
+# Therefore, we reject H0.
+#
+# IMPORTANT:
+#
+# Rejecting H0 does NOT mean we have mathematically
+# proven that Model B is better.
+#
+# It means the observed difference is statistically
+# significant according to our chosen threshold.
