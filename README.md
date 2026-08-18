@@ -71,6 +71,5 @@ from-scratch Gradient Descent implementation to follow.
 ## Rules I Follow
 
 - Push something every single day — no exceptions
-- Every LeetCode solution includes approach and time complexity in comments
 - Every practice file is real code I wrote, not copied
 - Phase projects go in their own dedicated repos — not here
