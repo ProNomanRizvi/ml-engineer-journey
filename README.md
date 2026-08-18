@@ -17,7 +17,7 @@ No shortcuts. No tutorial hell. Every file in this repo is something I built or 
 | Phase 2 | Object-Oriented Programming | ✅ Done |
 | Phase 3 | Data Structures & Algorithms | ✅ Done |
 | Phase 4 | SQL, NumPy & Pandas | ✅ Done |
-| Phase 5 | Math & Statistics for ML | 🔨 In Progress |
+| Phase 5 | Math & Statistics for ML | ✅ Done |
 | Phase 6 | Classical ML + First Project | ⏳ Upcoming |
 | Phase 7 | Deep Learning | ⏳ Upcoming |
 | Phase 8 | NLP + Deployment | ⏳ Upcoming |
