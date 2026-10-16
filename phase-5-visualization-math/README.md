@@ -17,42 +17,14 @@
 **Phase 5: COMPLETE ✅**
 
 ## Structure
-```
+
+```text
 phase-5-visualization-math/
-├── week1_matplotlib/
-│ ├── 01_matplotlib_basics.py
-│ ├── 02_seaborn_eda.py
-│ ├── notes.md
-│ ├── subplots_overview.png
-│ ├── training_curve.png
-│ ├── correlation_heatmap.png
-│ ├── pairplot.png
-│ ├── salary_boxplot.png
-│ └── salary_distribution.png
-├── week2_ploty_express/
-│ ├── 03_plotly_dashboard.py
-│ ├── notes.md
-│ ├── salary_scatter.html
-│ ├── department_bar.html
-│ ├── age_histogram.html
-│ ├── experience_line.html
-│ └── dashboard.html
-├── week3_linear_algebra/
-│ ├── linear_algebra_basics.py
-│ └── notes.md
-├── week4_calculas_statistics/
-│ ├── calculus_basics.py
-│ ├── 01_central_tendency_spread.py
-│ ├── 02_normal_distribution.py
-│ ├── 03_binomial_distribution.py
-│ ├── 04_bayes_medical_test.py
-│ ├── 05_correlation.py
-│ ├── 06_hypothesis_testing.py
-│ └── notes.md
-└── week5_gradient_descent/
-├── gradient_descent_from_scratch.py
-├── convergence_plot.png
-└── notes.md
+├── week1_matplotlib/             # Matplotlib and Seaborn
+├── week2_ploty_express/          # Plotly charts and dashboard
+├── week3_linear_algebra/         # NumPy linear algebra
+├── week4_calculas_statistics/    # Calculus and statistics
+└── week5_gradient_descent_NOTE.md  # Link to the standalone capstone
 ```
 
 ## Week Highlights

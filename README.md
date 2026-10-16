@@ -1,75 +1,42 @@
-# ml-engineer-journey
+# ML Engineer Journey
 
-My structured, ground-up path to becoming a Machine Learning Engineer.
-No shortcuts. No tutorial hell. Every file in this repo is something I built or solved myself.
+A learning log for my progression from Python fundamentals to applied machine learning. Practice exercises live here; larger projects have their own repositories.
 
 **Author:** Noman Rizvi  
 **Started:** April 2026  
-**Goal:** Employed as ML Engineer
+**Goal:** Machine Learning Engineer
 
----
+## Roadmap
 
-## Roadmap Progress
-
-| Phase | Topic | Status |
+| Phase | Focus | Progress |
 |---|---|---|
-| Phase 1 | Python Complete Mastery | ✅ Done |
-| Phase 2 | Object-Oriented Programming | ✅ Done |
-| Phase 3 | Data Structures & Algorithms | ✅ Done |
-| Phase 4 | SQL, NumPy & Pandas | ✅ Done |
-| Phase 5 | Math & Statistics for ML | ✅ Done |
-| Phase 6 | Classical ML + First Project | ⏳ Upcoming |
-| Phase 7 | Deep Learning | ⏳ Upcoming |
-| Phase 8 | NLP + Deployment | ⏳ Upcoming |
+| [1](phase-1-python/) | Python | Complete |
+| [2](phase-2-oop/) | Object-oriented programming | Complete |
+| [3](phase-3-dsa/) | Data structures and algorithms | Complete |
+| [4](phase-4-sql-data-manipulation/) | SQL, NumPy, and Pandas | Complete |
+| [5](phase-5-visualization-math/) | Visualization, math, and statistics for ML | Complete |
+| [6](phase-6-classical-ml/) | Classical machine learning | In progress: linear regression and residual analysis |
+| 7 | Deep learning | Planned |
+| 8 | NLP and deployment | Planned |
 
----
+The roadmap tracks the exercises in this repository. Applied ML work in separate repositories does not mean every roadmap phase is complete.
 
-## Structure
-```
-ml-engineer-journey/
-├── phase-1-python/                    # Advanced functions, decorators, generators, file I/O
-├── phase-2-oop/                        # Classes, inheritance, design patterns
-├── phase-3-dsa/                        # Data structures and algorithms from scratch
-├── phase-4-sql-data-manipulation/       # SQL, NumPy, Pandas + final ETL pipeline project
-├── phase-5-visualization-math/          # Matplotlib, Seaborn, Plotly + Linear Algebra, Calculus, Stats
-├── leetcode/
-│   ├── easy/                             # All Easy solutions
-│   └── medium/                           # All Medium solutions
-└── README.md
-```
+## What is here
 
----
+- **Python and OOP:** functions, decorators, generators, file handling, classes, inheritance, and design patterns.
+- **DSA:** implementations and algorithm exercises, including [LeetCode solutions](leetcode/).
+- **Data work:** SQL queries, NumPy, Pandas, and a sales ETL exercise.
+- **Visualization and math:** Matplotlib, Seaborn, Plotly, linear algebra, calculus, statistics, and a [gradient-descent capstone](phase-5-visualization-math/week5_gradient_descent_NOTE.md).
+- **Classical ML:** [linear regression, regularization, and residual analysis](phase-6-classical-ml/week1_linear_regression/).
 
-## Phase Highlights
+## Selected standalone projects
 
-**Phase 1 — Python:** `*args`/`**kwargs`, lambda, comprehensions, closures,
-decorators (`@timer`, `@count_calls`, `functools.wraps`), generators,
-file I/O (text/CSV/JSON), error handling.
+| Project | What it demonstrates |
+|---|---|
+| [NeuroFive ML Track](https://github.com/ProNomanRizvi/neurofive-ml-track) | Classification, model evaluation, feature engineering, and ML pipelines |
+| [EDA and Gradient Descent](https://github.com/ProNomanRizvi/eda-and-gradient-descent) | Churn exploration and linear regression trained with manual gradient descent |
+| [Sales Data Analysis Pipeline](https://github.com/ProNomanRizvi/sales-data-analysis-pipeline) | SQL analysis, data cleaning, and reporting |
+| [Python Bank Account OOP](https://github.com/ProNomanRizvi/python-bank-account-oop) | OOP, persistence, and automated tests |
+| [Python Task Manager](https://github.com/ProNomanRizvi/python-task-manager) | CLI task management and JSON Lines persistence |
 
-**Phase 2 — OOP:** Classes, inheritance, encapsulation, polymorphism,
-dunder methods, MRO, design patterns (Factory, Singleton), type hinting
-(`Protocol`, `Generic`, dataclasses). Capstone: a Bank Account System
-with JSON persistence, a 23-test suite, and a CLI.
-
-**Phase 3 — DSA:** LeetCode problems (two-pointer, string matching,
-linked lists, binary trees). Capstone: a CLI Task Manager with a
-`@log_call` decorator and JSON Lines storage.
-
-**Phase 4 — SQL, NumPy & Pandas:** SQL from basics through window
-functions, CTEs, and subqueries; NumPy for vectorized math; Pandas for
-real-world data cleaning. Capstone: a full ETL pipeline (SQL → Pandas →
-NumPy) processing messy sales data into a clean report.
-
-**Phase 5 — Visualization + Math for ML (in progress):** Matplotlib
-OO-style API for production-grade plots — subplot grids (line, bar,
-scatter, histogram) plus training/validation loss curves for ML
-diagnostics. Seaborn, Plotly, Linear Algebra, Calculus, Statistics, and a
-from-scratch Gradient Descent implementation to follow.
-
----
-
-## Rules I Follow
-
-- Push something every single day — no exceptions
-- Every practice file is real code I wrote, not copied
-- Phase projects go in their own dedicated repos — not here
+Each linked repository has its own setup instructions and scope.
